@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Admin Penjualan Barang</title>
+<style>
+    /**styling**/
+    .body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #8b7979;
+        color: #333;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 0;
+    }
+    /*header styling*/
+    header {
+        background-color: #496951;
+        color: white;
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    header.logo {
+        padding: 0 30px;
+    }
+
+    header.logo img {
+        height: 50px;
+        width: auto;
+    }
+    header h1 {
+        margin: 0;
+        color: rgb(243, 245, 243);
+        font-size: 4em;
+        padding: 20px;
+        text-decoration: double;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+    
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 0;
+        display: block;
+        transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover{
+        color: #ffc107;
+    }
+
+    /**content styling**/
+    main {
+        padding: 20px 0;
+        min-height: calc(100vh -180px); /*mnegatur footer dibawaah*/
+    }
+
+    section {
+        background-color: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(red, green, blue, alpha);
+    }
+
+    h2 {
+        color: #28a745;
+        margin-bottom: 15px;
+    }
+
+    p {
+        line-height: 1.6;
+    }
+
+    /*styling form*/
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    form label {
+        font-weight: bold;
+    }
+
+    form input[type="text"],
+    form input[type="number"],
+    form input[type="password"],
+    form textarea {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: calc(100% - 22px);/*menyesuaikan paddiing*/
+    }
+
+    form button {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+        background-color: #0056b3;
+    }
+
+    .error-massage {
+        color: red;
+        font-size: 0.9em;
+        margin-top: -10px;
+        margin-bottom: 10px;
+    }
+
+    /*table styling*/
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table th, table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    /*link styling*/
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    /*footer styling*/
+    footer {
+        background-color: #265023;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 20px;
+    }
+
+    /*responsive dngan media query*/
+    @media (max-width: 768px) {}
+        header {
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        header h1 {
+            font-size: 1.5em;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+        nav ul {
+            flex-direction: column;
+            width: 100%;
+            margin-top: 10px;
+            align-items: center; /*pusatkan item navigasi vertikal*/
+        }
+
+        nav ul li {
+            margin: 5px 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        form input[type="text"],
+        form input[type="number"],
+        form input[type="password"],
+        form textarea{
+            width: calc(100%-22px);
+        }
+
+        @media (max-width: 480px){
+            .container {
+                width: 95%;
+            }
+
+            header.logo img {
+                height: 40px;
+            }
+
+            header h1{
+                font-size: 1.2em;
+            }
+            
+            nav ul li a{
+                padding:  8px 0;
+            }
+
+            section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <div class="logo">
+        <img src="logo.jpg" alt="Logo Aplikasi" width="250px" height="175">
+    </div>
+    <H1>A A STORE</H1>
+    <nav>
+        <ul>
+            <li> <a href="Beranda.html" onclick="showpage('Beranda')">Beranda</a> </li>
+            <li> <a href="Transaksi.html" onclick="showpage('Transaksi')">Transaksi</a></li>
+            <li> <a href="barang.html" onclick="showpage('Barang')">Barang</a></li>
+            <li> <a href="#Profil" onclick="showpage('Profil')">Profil</a></li>
+            <li> <a href="#Login" onclick="showpage('Login')">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="container">
+        <section id="Beranda" class="page-section">
+            <h2>Beranda</h2>
+            <h3>Selamat datang AA STORE!</h3>
+            <p>AA Store menjual sweater keren dan modern. Ikuti langkah-langkah di bawah untuk login. </p>
+             <ol>
+                <li> <strong> Login :</strong> Masuk ke halaman <a href="#Login" onclick="showpage('Login')">Login</a>
+                    , gunakan username dan password yang sudah terdaftar.</li>
+                <li><strong>Barang :</strong> Masuk kehalaman <a href="barang.html" onclick="showpage('Barang')">Barang</a>
+                , Untuk melihat stok barang.
+                <li><strong>Transaksi :</strong> Masuk ke halaman <a href="Transaksi.html" onclick="showpage('Transaksi')">Transaksi</a> untuk melihat hasil hasil Transaksi.</li>
+                <li><strong>Profil :</strong> Masuk ke halaman <a href="#Profil" onclick="showpage('Profil')">Profil</a> untuk melihat profil lebih lanjut.</li>
+             </ol>
+             <p>Semoga dapat membantu anda lebih mudah untuk memasuki web ini.</p>
+            </section>
+
+            <section id="Transaksi" class="page-section" style="display: none;">
+                
+                <h2>Transaksi baru</h2>
+                
+                <form id="Transaksiform">
+                    
+                    <label for="NamaTransaksi">Nama Transaksi</label>
+                    <input type="text" id="NamaTransaksi" name="NamaTransaksi" placeholder="SWEATER AA STORE" required>
+
+                    <div class="error-massage" id="errorNamaTransaksi"></div>
+                    <label for="jumlah">jumlah(unit):</label>
+                    <input type="number" id="jumlah" name="jumlah" min="1" placeholder="masukan jumlah barang" required></div>
+                    <div class="error-massage" id="errorjumlah"></div>
+                    
+                    <label for="kategori">kategori</label>
+                    <input type="text" id="kategori" name="kategori" placeholder="Jaket" required>
+                    <div class="error-massage" id="errorKategori"></div>
+
+                    <button type="submit">simpan Transaksi</button>
+                </form>
+
+                <p style="margin-top: 20px;">lihat <a href="Transaksi.html" onclick="showpage('Transaksi')">Transaksi</a> yang sudah ada</p>
+            </section>
+            
+            <section id="daftar-transaksi" class="page-section" style="display: none;">
+                <h2>daftar Transaksi</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nama Transaksi</th>
+                            <th>jumlah</th>
+                            <th>kategori</th>
+                        </tr>
+                    </thead>
+                    <tbody id="Transaksilist"></tbody>
+                </table>
+            </section>
+
+            <section id="profil" class="page-section" style="display: none;">
+                <h2>Profil aplikasi</h2>
+                <p><strong>Aplikasi admin Penjualan barang</strong> adalah ssebuah sistem manajemen sederhana yang di rancang untuk membantu admin mencatat atau mempermudah transaksi. Dengan ini pengguna dapat dengan mudah menambahkan transaksi baru ,melihat riwayat Penjualan.</p>
+                <p>Fitur utama meliput :</p>
+                <ul>
+                    <li>pencatatan transaksi yang efisien.</li>
+                    <li>daftar transaksi yang terorganisir.</li>
+                    <LI>Antarmuka responsif untuk berbagai perangkat.</LI>
+                    <li>Validasi formulir untuk memastikan integrasi data.</li>
+                </ul>
+                <p>aplikasi ini dibuat untuk membantu dan mempermudah administrasi penjualan.</p>
+            </section>
+            
+            <section id="login" class="page-section" style="display: none;">
+                <h2>Login</h2>
+                <form>
+                    <label for="username">username</label>
+                    <input type="text" id="username" name="username" placeholder="masukan nama anda">
+
+                    <label for="password">password</label>
+                    <input type="password" id="password" name="password" placeholder="masukan password anda">
+
+                    <button type="submit">login</button>
+
+                </form>
+            </section>
+    </main>
+
+    <footer>&copy; 2025 AA STORE</footer>
+</body>
+</html>
